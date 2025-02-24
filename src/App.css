@@ -1,0 +1,277 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff; /* White text for contrast */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: #00ffcc; /* Neon cyan for a modern touch */
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.name-input, input {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.name-input:focus, input:focus {
+  border-color: #00cc99;
+  box-shadow: 0 0 5px rgba(0, 204, 153, 0.5);
+}
+
+button {
+  padding: 12px 24px;
+  margin: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #00ffcc;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 255, 204, 0.3);
+}
+
+button:hover:not(:disabled) {
+  background-color: #00cc99;
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background-color: #ff4444;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.shaking {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1; /* Allow the grid to take available space before footer */
+}
+
+.module {
+  border: 2px solid #00ffcc;
+  border-radius: 12px;
+  background-color: #2a2a2a;
+  box-shadow: 0 5px 15px rgba(0, 255, 204, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: fit-content; /* Only be as tall as needed */
+}
+
+.module:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 255, 204, 0.3);
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #2a2a2a;
+  border-bottom: 2px solid #00ffcc;
+}
+
+.module-header h2 {
+  color: #00ffcc;
+  margin: 0;
+  font-size: 1.5em;
+  text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+}
+
+.module-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+  overflow-y: auto;
+  max-width: 100%;
+  word-wrap: break-word;
+  transition: opacity 0.3s ease;
+  box-sizing: border-box; /* Add this to ensure consistent sizing */
+}
+
+.language-select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.language-select:focus {
+  border-color: #00cc99;
+  box-shadow: 0 0 5px rgba(0, 204, 153, 0.5);
+}
+
+.language-select option {
+  background-color: #2a2a2a;
+  color: #ffffff;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 0; /* No bottom margin */
+}
+
+.edit-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #00ffcc;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 255, 204, 0.3);
+  align-self: flex-start; /* Align to the start of the flex container */
+}
+
+.edit-button:hover {
+  background-color: #00cc99;
+  transform: translateY(-2px);
+}
+
+.edit-button svg {
+  font-size: 16px;
+}
+
+/* Styling for the editable code textarea */
+.code-editor {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  margin: 0 0 10px 0; /* Only bottom margin, no sides */
+  font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
+  font-size: 14px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #ffffff;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+  box-sizing: border-box; /* This is key - include padding and border in the width calc */
+}
+
+.code-editor:focus {
+  border-color: #00cc99;
+  box-shadow: 0 0 5px rgba(0, 204, 153, 0.5);
+}
+
+/* Custom styling for SyntaxHighlighter to left-align code */
+.code-display {
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important; /* Left-align the code */
+  width: 100% !important;
+}
+
+.react-syntax-highlighter-line-number {
+  display: inline-block;
+  width: 30px;
+  padding-right: 10px;
+  color: #888; /* Light gray for line numbers */
+  text-align: right;
+  user-select: none;
+  background-color: #2a2a2a; /* Match the dark background */
+}
+
+.react-syntax-highlighter-line {
+  white-space: pre-wrap; /* Ensure lines wrap */
+  word-break: break-word; /* Break long words */
+  line-height: 1.5; /* Consistent line spacing */
+  text-align: left; /* Left-align the text */
+  padding-left: 0; /* Ensure no extra left padding */
+}
+
+/* Ensure no centering in SyntaxHighlighter or its container */
+.react-syntax-highlighter {
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Footer styling */
+.footer {
+  padding: 20px 0;
+  background-color: #2a2a2a;
+  border-top: 2px solid #00ffcc;
+  margin-top: auto; /* Push footer to bottom */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.footer-link {
+  color: #00ffcc;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00cc99;
+  text-decoration: underline;
+}
+
+.footer-name {
+  color: #ffffff;
+  font-size: 16px;
+}
