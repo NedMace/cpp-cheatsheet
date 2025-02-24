@@ -12,6 +12,14 @@ This app took approximately 2 hours to develop, and it's a work in progress. I p
 - ✅ **Semi-functional Frontend**: A basic but working interface to manage your code snippets.
 - ✅ **Dynamic Content**: Add, delete, and view snippets with ease.
 
+## TBD
+
+- Hide Module ID on startup
+- UI changes to make it maybe like more than like 2 colors
+- Github link on the lower left actually links to this repo
+- IDE color implimentation that way the viewport looks cooler
+- Delete button red because, well... red
+
 ## Code Module Demo
 
 To see the app in action, visit the demo link below:
